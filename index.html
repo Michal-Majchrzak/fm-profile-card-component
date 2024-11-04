@@ -3,21 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Profile card component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
-  Victor Crest
-  26
-  London
-
-  80K
-  Followers
-
-  803K
-  Likes
-
-  1.4K
-  Photos
+  <main class="card">
+    <img class="card-header" src="assets/images/bg-pattern-card.svg" alt="">
+    <img class="card-avatar" src="assets/images/image-victor.jpg" alt="">
+    <section class="card-name-location">
+      <h1 class="card-title"><span class="text-bold">Victor Crest</span> 26</h1>
+      <p class="text-small">London</p>
+    </section>
+    <hr class="horizontal-line">
+    <section class="stats-section">
+      <p class="stats-box">
+        <span class="text-bold">80K</span>
+        <span class="text-wide">Followers</span>
+      </p>
+      <p class="stats-box">
+        <span class="text-bold">803K</span>
+        <span class="text-wide">Likes</span>
+      </p>
+      <p class="stats-box">
+        <span class="text-bold">1.4K</span>
+        <span class="text-wide">Photos</span>
+      </p>
+    </section>
+  </main>
 </body>
 </html>
