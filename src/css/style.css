@@ -45,35 +45,35 @@ img {
 body::before {
     background-image: var(--background-gradient);
     border-radius: 100%;
-    width: 612px;
-    height: 612px;
     content: "";
+    opacity: 0.25;
+    z-index: -1;
+    width: 622px;
+    height: 622px;
     position: fixed;
     top:-355px;
     left:-410px;
-    transform: rotate(-135deg);
-    opacity: 0.25;
-    z-index: -1;
+    transform: rotate(180deg);
 }
 
 body::after {
     background-image: var(--background-gradient);
     border-radius: 100%;
-    width: 612px;
-    height: 612px;
     content: "";
-    position: fixed;
-    top: 366px;
-    left:165px;
-    transform: rotate(-225deg);
     opacity: 0.25;
     z-index: -1;
+    width: 622px;
+    height: 622px;
+    position: fixed;
+    /* bottom is calculated with formula : (100vh - 357px) - bgImageWidth */
+    bottom: -312px;
+    /* right is calculated with formula : (100vw - 165px) - bgImageHeight */
+    right: -412px; 
+    transform: rotate(-225deg);
 }
 
 body {
     background-color: var(--color-dark-cyan);
-    
-
     display: flex;
     align-items: center;
     justify-content: center;
