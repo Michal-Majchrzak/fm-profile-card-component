@@ -14,6 +14,8 @@ img {
     --color-very-dark-blue: hsl(229, 23%, 23%);
     --color-dark-blue: hsl(227, 10%, 46%);
     --color-light-gray: hsl(228, 9%, 92%);
+    /* Gradients */
+    --background-gradient: linear-gradient(hsla(195, 91%, 37%, 0.01), hsl(174, 100%, 66%));
     /* Spacing */
     --space-275: 0.9375rem;
     /* Avatar */
@@ -40,8 +42,38 @@ img {
     line-height: 100%;
 }
 
+body::before {
+    background-image: var(--background-gradient);
+    border-radius: 100%;
+    width: 612px;
+    height: 612px;
+    content: "";
+    position: fixed;
+    top:-355px;
+    left:-410px;
+    transform: rotate(-135deg);
+    opacity: 0.25;
+    z-index: -1;
+}
+
+body::after {
+    background-image: var(--background-gradient);
+    border-radius: 100%;
+    width: 612px;
+    height: 612px;
+    content: "";
+    position: fixed;
+    top: 366px;
+    left:165px;
+    transform: rotate(-225deg);
+    opacity: 0.25;
+    z-index: -1;
+}
+
 body {
     background-color: var(--color-dark-cyan);
+    
+
     display: flex;
     align-items: center;
     justify-content: center;
