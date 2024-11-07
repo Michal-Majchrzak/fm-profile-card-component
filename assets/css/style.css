@@ -14,14 +14,12 @@ img {
     --color-very-dark-blue: hsl(229, 23%, 23%);
     --color-dark-blue: hsl(227, 10%, 46%);
     --color-light-gray: hsl(228, 9%, 92%);
-    /* Gradients */
-    --background-gradient: linear-gradient(hsla(195, 91%, 37%, 0.01), hsl(174, 100%, 66%));
-    /* Spacing */
-    --space-275: 0.9375rem;
     /* Avatar */
     --avatar-size: 6rem;
     --border-width: 0.3125rem;
     --final-avatar-size: calc(var(--avatar-size) + 2 * var(--border-width));
+    /* Background */
+    --bg-circle-size: 61.125rem;
 }
 
 .text-bold {
@@ -42,34 +40,40 @@ img {
     line-height: 100%;
 }
 
+/* Background circle elements */
+
 body::before {
-    background-image: var(--background-gradient);
+    background-image: linear-gradient(10deg, hsla(195, 91%, 37%, 0.01), hsl(174, 100%, 66%));
     border-radius: 100%;
     content: "";
     opacity: 0.25;
     z-index: -1;
-    width: 622px;
-    height: 622px;
+    width: var(--bg-circle-size);
+    height: var(--bg-circle-size);
     position: fixed;
-    top:-355px;
-    left:-410px;
-    transform: rotate(180deg);
+    top: -31.8125rem;
+    /*  calc function -> calculates left offset of the element based on its size and vieport witdh.
+    This left offset will anchor right edge of the element 27px to the left of viewport center.
+
+        min function  -> will apply calucated left offset value as long as viewport width is less than 1440px,
+    for larger vieports element will be placed in the same position -285px.
+    
+    The same idea is applied in right offset for the body::after element.
+    */
+    left: min(-17.8125rem, calc((50vw - 1.6875rem) - var(--bg-circle-size)));
 }
 
 body::after {
-    background-image: var(--background-gradient);
+    background-image: linear-gradient(-100deg, hsla(195, 91%, 37%, 0.01), hsl(174, 100%, 66%));
     border-radius: 100%;
     content: "";
     opacity: 0.25;
     z-index: -1;
-    width: 622px;
-    height: 622px;
+    width: var(--bg-circle-size);
+    height: var(--bg-circle-size);
     position: fixed;
-    /* bottom is calculated with formula : (100vh - 357px) - bgImageWidth */
-    bottom: -312px;
-    /* right is calculated with formula : (100vw - 165px) - bgImageHeight */
-    right: -412px; 
-    transform: rotate(-225deg);
+    bottom: -39.5rem;
+    right: min(-14.375rem, calc((50vw + 1.75rem) - var(--bg-circle-size))); 
 }
 
 body {
@@ -88,14 +92,14 @@ body {
 
 .card {
     background-color: var(--color-white);
-    border-radius: var(--space-275);
+    border-radius: 0.9375rem;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
     padding-bottom: 1.5rem;
-    max-width: 20.375rem;
+    width: clamp(20.375rem, calc(100vw - 3rem), 21.875rem);
     box-shadow: 0px 50px 100px -20px hsla(197, 85%, 20%, 0.5);
 }
 
@@ -103,7 +107,7 @@ body {
     object-fit: cover;
     height: 8.75rem;
     width: 100%;
-    border-radius: var(--space-275) var(--space-275) 0 0;
+    border-radius: 0.9375rem 0.9375rem 0 0;
     margin-bottom: calc(var(--avatar-size) / 2 - var(--border-width));
 }
 
@@ -146,7 +150,7 @@ body {
 }
 .card .stats-section {
     display: flex;
-    gap: 1.5rem;
+    gap: clamp(1.5rem, 8.5vw, 2.125rem);
 }
 
 .card .stats-box {
